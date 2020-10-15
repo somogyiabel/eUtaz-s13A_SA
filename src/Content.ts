@@ -23,12 +23,25 @@ export default class Content {
 
         // Kezd a kódolást innen -->
 
-        //1
+        // 1. feladat: adatok beolvasása, tárolása
         const megold: Megoldás = new Megoldás("utasadat.txt");
-        //2
-        res.write(`2.Feladat: a buszra ${megold.felszallokSzama} utas akart felszállni`);
-        //3
-        res.write(`\n3. Feladat: A buszra ${megold.ervenytelenFelszallas} utas nem szállhatott fel.`);
+
+        // 2. feladat:
+        res.write(`2. feladat\nA buszra ${megold.felszállókSzáma} utas akart felszállni.\n`);
+
+        // 3. feladat:
+        res.write(`3. feladat\nA buszra ${megold.érvénytelenFelszállás} utas nem szállhatott fel.\n`);
+
+        // 4. feladat:
+        res.write(`4. feladat Array-el\nA legtöbb utas (${megold.maxKeresArray.maxFelszálló} fő) a ${megold.maxKeresArray.maxElsőMegálló} megállóban próbált felszállni.\n`);
+
+        res.write(`4. feladat Map-el\nA legtöbb utas (${megold.maxKeresMap.maxFelszálló} fő) a ${megold.maxKeresMap.maxElsőMegálló} megállóban próbált felszállni.\n`);
+
+        res.write("5. feladat:\n");
+        res.write(`Ingyenes utazók száma: ${megold.ingyenesenUtazók} fő\n`);
+        res.write(`A kedvezményesen utazók száma: ${megold.kedvezményesenUtazók} fő\n`);
+        //7
+        megold.figyelmezteteseketKiir("figyelmeztetesek.txt");
         // <---- Fejezd be a kódolást
 
         res.write("</pre></form>");
